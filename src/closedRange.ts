@@ -14,4 +14,12 @@ export default class ClosedRange {
     public contains(num: number): boolean {
         return this.start <= num && num <= this.end;
     }
+
+    public equals(otherRange: ClosedRange): boolean {
+        return this.start === otherRange.start && this.end === otherRange.end;
+    }
+
+    public isConnectedTo(otherRange: ClosedRange): boolean {
+        return this.start === otherRange.end || this.end === otherRange.start;
+    }
 }
