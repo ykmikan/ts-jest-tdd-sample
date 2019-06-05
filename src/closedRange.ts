@@ -7,7 +7,11 @@ export default class ClosedRange {
         this.end = end;
     }
 
-    toString() {
+    public toString() {
         return `[${this.start}, ${this.end}]`;
+    }
+
+    public contains(num: number): boolean {
+        return this.start <= num && num <= this.end;
     }
 }
