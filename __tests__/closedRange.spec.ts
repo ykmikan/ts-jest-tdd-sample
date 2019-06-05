@@ -28,6 +28,15 @@ describe('整数の閉区間作成 ', () => {
         assert.equal(closedRange.toString(), `[${ME_START}, ${ME_END}]`);
     });
 
+    test('下端点 >= 上端点の場合生成出不可能', () => {
+        assert.throws( () => {
+          new ClosedRange({start: ME_END, end: ME_START})
+        }, (err: Error) => {
+          assert(err.message === 'start < endに違反しています')
+          return true;
+        })
+      });
+
     describe('閉区間が指定した整数を含む場合、trueを返す', () => {
         test('下端点指定したとき', () => {
             assert.equal(closedRange.contains(ME_START), true);
